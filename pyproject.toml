@@ -1,5 +1,5 @@
 [project]
-name = "coversation-rag"
+name = "conversation-rag"
 version = "0.1.0"
 description = ""
 authors = [
@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "coversation_rag", from = "src"}]
+packages = [{include = "conversation_rag", from = "src"}]
 
 
 [build-system]

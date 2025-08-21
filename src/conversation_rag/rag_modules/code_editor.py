@@ -23,8 +23,16 @@ def edit_code(filepath: str, instruction: str):
 
     # Construct prompt
     messages = [
-        SystemMessage(content="You are a senior Java developer. Modify code as per user's instruction."),
-        HumanMessage(content=f"""Here is the code:\n\n{code}\n\nInstruction:\n{instruction}\n\n.""")
+        SystemMessage(
+            content=(
+                "You are a meticulous senior Java developer. "
+                "Modify the provided Java code to exactly follow the user's instruction. "
+                "Return only the full updated code without explanations or markdown."
+            )
+        ),
+        HumanMessage(
+            content=f"Original code:\n{code}\n\nInstruction:\n{instruction}"
+        ),
     ]
 
     # Run OpenAI LLM
