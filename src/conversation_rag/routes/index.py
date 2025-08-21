@@ -5,15 +5,15 @@ from pydantic import BaseModel
 
 
 class IndexRequest(BaseModel):
-    repo_path: str
+    repo_name: str
 
 router = APIRouter()
 
 @router.post("/index")
 
 def index_repo(request: IndexRequest):
-    repo_name = request.repo_path
-    print("Loading Repo name--->",repo_name)
+    repo_name = request.repo_name
+    print("Loading Repo name--->", repo_name)
     docs = load_java_repo(f"{repo_name}")
     create_index(docs, persist_dir=f"index/{repo_name}")
     return {"status": "indexed"}
